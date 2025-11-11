@@ -12,11 +12,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose port (FastAPI default is 8000)
 # Expose ports
+# Expose ports for both services
 EXPOSE 8000
 EXPOSE 5000
 
-# Start both MLflow UI and FastAPI using sh
-CMD sh -c "mlflow ui --backend-store-uri file:///app/mlruns --host 0.0.0.0 --port 5000 --serve-artifacts --cors-allow-origins '*' & \
-           uvicorn app:app --host 0.0.0.0 --port 8000"
+# Install supervisor
+RUN apt-get update && apt-get install -y supervisor
 
+# Copy supervisor configuration
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Run both MLflow and FastAPI under supervisor
+CMD ["/usr/bin/supervisord"]
