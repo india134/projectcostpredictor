@@ -1,30 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Iris Flower Classifier</title>
+  <meta charset="UTF-8">
+  <title>Iris Flower Classifier</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #e3f2fd, #f8f9fa);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      margin-top: 80px;
+      padding: 40px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 25px;
+    }
+    button {
+      width: 100%;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    h3 {
+      text-align: center;
+      color: #28a745;
+      margin-top: 30px;
+    }
+  </style>
 </head>
-<body style="font-family: Arial; margin: 40px;">
-    <h2>Iris Flower Classifier</h2>
+<body>
+  <div class="container">
+    <h2>🌸 Iris Flower Classifier</h2>
     <form method="post" action="/predict">
+      <div class="mb-3">
         <label>Sepal Length:</label>
-        <input type="number" step="any" name="sepal_length" required><br><br>
+        <input type="number" step="any" class="form-control" name="sepal_length" required>
+      </div>
 
+      <div class="mb-3">
         <label>Sepal Width:</label>
-        <input type="number" step="any" name="sepal_width" required><br><br>
+        <input type="number" step="any" class="form-control" name="sepal_width" required>
+      </div>
 
+      <div class="mb-3">
         <label>Petal Length:</label>
-        <input type="number" step="any" name="petal_length" required><br><br>
+        <input type="number" step="any" class="form-control" name="petal_length" required>
+      </div>
 
+      <div class="mb-3">
         <label>Petal Width:</label>
-        <input type="number" step="any" name="petal_width" required><br><br>
+        <input type="number" step="any" class="form-control" name="petal_width" required>
+      </div>
 
-        <button type="submit">Predict</button>
+      <button type="submit">Predict</button>
     </form>
 
     {% if result %}
-        <h3 style="margin-top: 20px;">Prediction: {{ result }}</h3>
+      <h3>Prediction: {{ result }}</h3>
     {% endif %}
+  </div>
 </body>
 </html>
+
 
