@@ -52,7 +52,8 @@ jobs:
             docker pull akashdocker134/iris-mlop:latest
 
             echo "🎯 Running new container..."
-            docker run -d -p 8000:8000 --name iris-mlop akashdocker134/iris-mlop:latest
+            docker run -d -p 8000:8000 -p 5000:5000 --name iris-mlop akashdocker134/iris-mlop:latest
+
 
 
 
