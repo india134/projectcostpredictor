@@ -4,3 +4,6 @@ scikit-learn
 joblib
 jinja2
 gunicorn
+numpy
+pandas
+mlflow
